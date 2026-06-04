@@ -7,7 +7,7 @@ public class State {
         currentState = 0;
     }
 
-    public int GetCurrentState() {
+    public int getCurrentState() {
         // returns the current state of the website
         return currentState;
     }

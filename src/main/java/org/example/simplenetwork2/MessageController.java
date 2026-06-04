@@ -17,9 +17,7 @@ public class MessageController {
     @GetMapping("/no")
     public String getNoMessage() {
         String m;
-        m = messages.getNextNoMessage();
+        m = messages.getNextStateMessage();
         return m;
     }
-
-
 }

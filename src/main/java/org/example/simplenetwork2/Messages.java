@@ -9,9 +9,14 @@ public class Messages {
     private final ArrayList<String> messages;
     private final ArrayList<String> noMessages;
     public int noClickCounter = 0;
-
+    private State state;
 
     public Messages() {
+
+        state = new State();
+
+        System.out.println(state.getCurrentState());
+
         messages = new ArrayList<>();
         noMessages = new ArrayList<>();
 
@@ -124,19 +129,45 @@ public class Messages {
 
     }
 
-    public String getNextNoMessage() {
-        String returnMessage= "";
+//    public String getNextNoMessage() {    depreciated
+//        String returnMessage = "";
+//
+//        while (true) {
+//            if (noClickCounter < 4) {
+//                returnMessage = noMessages.get(noClickCounter);
+//                ++noClickCounter;
+//                return returnMessage;
+//            }
+//            if (noClickCounter == 4) {
+//                noClickCounter = 0;
+//                return "okay, lets try this again.";
+//            }
+//        }
+//    }
+//
+    public String getNextStateMessage() {
+        /*
+        changes both the state and the message that is linked to the state, note the
+        print statements for testing what state the user is currently in
+         */
+
+        String returnMessage = "";
 
         while (true) {
-            if (noClickCounter < 4) {
-                returnMessage = noMessages.get(noClickCounter);
-                ++noClickCounter;
+            if (state.getCurrentState() < 4) {
+                returnMessage = noMessages.get(state.getCurrentState());
+                state.advanceState();
+                System.out.println(state.getCurrentState());
                 return returnMessage;
             }
-            if (noClickCounter == 4) {
-                noClickCounter = 0;
+            if (state.getCurrentState() == 4) {
+                state.resetState();
+                System.out.println(state.getCurrentState());
                 return "okay, lets try this again.";
             }
         }
     }
+
+
+
 }
