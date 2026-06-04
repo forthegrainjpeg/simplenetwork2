@@ -10,13 +10,17 @@ public class Messages {
 
     public Messages() {
         messages = new ArrayList<>();
-        /*
-        messages.add("HelloWorld!");
-        messages.add("Welcome");
-        messages.add("Good Morning");
-         */
-        messages.add("yay!!!");
 
+
+        messages.add("good!");
+        messages.add("me too!");
+
+        messages.add("yay!!!");
+        messages.add("According to all known laws of aviation, " +
+                "there is no way a bee should be able to fly. " +
+                "Its wings are too small to get its fat little body off the ground. " +
+                "The bee, of course, flies anyway because bees don't care what humans think is impossible.");
+        //im so sorry
     }
 
     public String createMessage() {
