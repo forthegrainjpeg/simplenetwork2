@@ -15,7 +15,7 @@ public class Messages {
         messages.add("Welcome");
         messages.add("Good Morning");
          */
-        messages.add("issa is cute");
+        messages.add("yay!!!");
 
     }
 
