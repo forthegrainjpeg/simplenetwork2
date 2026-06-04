@@ -7,14 +7,21 @@ public class Messages {
 
 
     private final ArrayList<String> messages;
+    private final ArrayList<String> noMessages;
+    public int noClickCounter = 0;
+
 
     public Messages() {
         messages = new ArrayList<>();
+        noMessages = new ArrayList<>();
 
+        noMessages.add("Wait really?");
+        noMessages.add("stop you are joking!!");
+        noMessages.add("Okay this isnt funny anymore!!!");
+        noMessages.add("Okay, i see how you feel :(");
 
         messages.add("good!");
         messages.add("me too!");
-
         messages.add("yay!!!");
         messages.add("Somebody once told me the world is gonna roll me\n" +
                 "I ain't the sharpest tool in the shed\n" +
@@ -99,9 +106,6 @@ public class Messages {
     public String removeMessage() {
         // allows the user to remove a message from the
         // Messages arrayList
-
-
-
         return "finish method";
     }
 
@@ -118,5 +122,21 @@ public class Messages {
 
         return random;
 
+    }
+
+    public String getNextNoMessage() {
+        String returnMessage= "";
+
+        while (true) {
+            if (noClickCounter < 4) {
+                returnMessage = noMessages.get(noClickCounter);
+                ++noClickCounter;
+                return returnMessage;
+            }
+            if (noClickCounter == 4) {
+                noClickCounter = 0;
+                return "okay, lets try this again.";
+            }
+        }
     }
 }
